@@ -12,6 +12,9 @@ export class DemoComponent implements OnInit {
   firstName: string = faker.name.firstName();
   lastName: string = faker.name.lastName();
   imageUrl: string = faker.image.avatar();
+
+  output!: string;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,5 +22,14 @@ export class DemoComponent implements OnInit {
 
   generateImage() {
     this.imageUrl =  faker.image.avatar();
+  }
+
+  somefunction(event: Event) {
+    console.log(event);
+    let inputElement: EventTarget | null = event.target;
+
+    this.output = (inputElement as HTMLInputElement).value;
+
+
   }
 }
